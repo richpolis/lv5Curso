@@ -2,14 +2,10 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Faker\Factory as Faker;
 
-class UserTableSeeder extends Seeder {
+class AdminTableSeeder extends Seeder {
 
 	public function run(){
-		
-		$faker = Faker::create();
-		
 		\DB::table('users')->insert(array(
 			'first_name'=> 'Ricardo',
 			'last_name'=>'Alcantara Gomez',
