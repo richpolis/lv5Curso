@@ -135,7 +135,13 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-
+		
+		/*
+		 * Vendor Service Providers
+		*/
+		
+		'Collective\Html\HtmlServiceProvider',
+		
 		/*
 		 * Application Service Providers...
 		 */
@@ -192,6 +198,13 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+		
+		/*
+		 * Vendor Aliaces
+		*/
+		
+		'Form' => 'Collective\Html\FormFacade',
+      	'Html' => 'Collective\Html\HtmlFacade',
 
 	],
 
