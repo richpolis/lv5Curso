@@ -11,19 +11,24 @@ class UserTableSeeder extends Seeder {
 		$faker = Faker::create();
 
 		for($cont = 1; $cont<=30; $cont++){
+
+			$firstName 	= 	$faker->firstName;
+			$lastName 	=	$faker->lastName;
+
 			$id = \DB::table('users')->insertGetId(array(
-				'first_name'	=> 	$faker->firstName,
-				'last_name'		=>	$faker->lastName,
+				'first_name'	=> 	$firstName,
+				'last_name'		=>	$lastName,
 				'email'			=> 	$faker->unique()->email,
 				'password'		=> 	\Hash::make('123456'),
-				'type'			=> 	'user'
+				'type'			=> 	$faker->randomElement(['editor','contributor','subcriber','user']),
 			));		
 
 			\DB::table('user_profiles')->insert(array(
 				'user_id'		=> 	$id,
 				'bio'			=>	$faker->paragraph(rand(2,5)),
 				'website'		=> 	$faker->url,
-				'twitter'		=> 	'@'.$faker->unique()->userName
+				'twitter'		=> 	'@'.$faker->unique()->userName,
+				'birthdate'		=>  $faker->dateTimeBetween('-45 years','-15 years')->format('Y-m-d')
 			));		
 
 
